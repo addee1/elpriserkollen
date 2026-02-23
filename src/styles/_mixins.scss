@@ -1,0 +1,70 @@
+@use 'variables' as *;
+
+// Responsive breakpoints
+@mixin respond-to($bp) {
+  @if $bp == sm { @media (min-width: $bp-sm) { @content; } }
+  @else if $bp == md { @media (min-width: $bp-md) { @content; } }
+  @else if $bp == lg { @media (min-width: $bp-lg) { @content; } }
+  @else if $bp == xl { @media (min-width: $bp-xl) { @content; } }
+}
+
+// Card mixin
+@mixin card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: $radius-md;
+  box-shadow: var(--shadow-card);
+  padding: $spacing-lg;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+  @include respond-to(md) {
+    padding: $spacing-xl;
+  }
+}
+
+// Input base
+@mixin input-base {
+  background: var(--bg-input);
+  border: 1px solid var(--border-input);
+  border-radius: $radius-sm;
+  color: var(--text-primary);
+  font-family: $font-family;
+  font-size: 0.875rem;
+  padding: 0.6rem 0.85rem;
+  outline: none;
+  width: 100%;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+
+  &:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 3px var(--accent-cyan-dim);
+  }
+}
+
+@mixin button-reset {
+  appearance: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: $font-family;
+  font-size: 0.875rem;
+  padding: 0;
+  color: inherit;
+}
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Grid
+@mixin auto-grid($min-width: 280px, $gap: $spacing-md) {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $gap;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  }
+}
