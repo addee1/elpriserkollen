@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import type { HourlyPrice, PriceUnit } from '../types';
-
+import InfoTooltip from "./InfoTooltip";
 interface Props {
   data: HourlyPrice[];
   unit: PriceUnit;
@@ -51,13 +51,18 @@ const SavingsCalculator = ({ data, unit }: Props) => {
 
       <div className="savings-form">
         <div className="savings-form__group">
-          <label className="savings-form__label">Apparat</label>
+          <label className="savings-form__label">
+            Apparat
+            <InfoTooltip
+                text="Förbrukningen är ett genomsnittsvärde. Faktisk energianvändning varierar beroende på modell, ålder, temperatur, tvättmängd och program."
+            />
+          </label>
           <select
-            className="savings-form__select"
-            value={applianceIdx}
-            onChange={(e) => setApplianceIdx(Number(e.target.value))}>
+              className="savings-form__select"
+              value={applianceIdx}
+              onChange={(e) => setApplianceIdx(Number(e.target.value))}>
             {appliances.map((a, i) => (
-              <option key={i} value={i}>
+                <option key={i} value={i}>
                 {a.name} (~{a.kwh} kWh)
               </option>
             ))}
@@ -113,7 +118,12 @@ const SavingsCalculator = ({ data, unit }: Props) => {
           <span>{fmtCost(result.costCheapest)} {unitShort}</span>
         </div>
         <div className="savings-results__row savings-results__row--savings">
-          <span>Månatlig besparing</span>
+          <span>
+            Månatlig besparing
+            <InfoTooltip
+                text="Denna beräkning baseras på dagens timpriser. Eftersom elpriser varierar dag för dag kan den faktiska besparingen bli högre eller lägre."
+            />
+          </span>
           <span>{result.monthly.toFixed(2)} kr</span>
         </div>
         <div className="savings-results__row">
