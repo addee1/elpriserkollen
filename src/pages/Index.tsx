@@ -7,6 +7,7 @@ import PriceOverview from '../components/PriceOverview';
 import CheapestPeriod from '../components/CheapestPeriod';
 import SavingsCalculator from '../components/SavingsCalculator';
 import FeesSettings from '../components/FeesSettings';
+import Footer from '../components/Footer';
 
 function applyFees(data: HourlyPrice[], fees: FeesConfig): HourlyPrice[] {
   if (!fees.enabled) return data;
@@ -62,6 +63,7 @@ const Index = () => {
           </>
         )}
       </main>
+      <Footer />
     </div>
   );
 };
