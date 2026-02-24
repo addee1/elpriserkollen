@@ -1056,3 +1056,13 @@ body {
     background: var(--border-subtle);
   }
 }
+.chart-container--historical {
+  position: relative;
+}
+
+.chart-container__unit-toggle {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  z-index: 5;
+}
