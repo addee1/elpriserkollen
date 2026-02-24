@@ -8,9 +8,11 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 const queryClient = new QueryClient();
 import MainLayout from "./layout/MainLayout";
+import ScrollToTop from "./components/ScrollToTop";
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Index />} />
