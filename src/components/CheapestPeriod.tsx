@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import type { HourlyPrice, PriceUnit } from '../types';
-
+import InfoTooltip from "./InfoTooltip";
 interface Props {
   data: HourlyPrice[];
   unit: PriceUnit;
@@ -45,16 +45,21 @@ const CheapestPeriod = ({ data, unit }: Props) => {
 
   return (
     <section className="section">
-      <h2 className="section__title">Billigaste tidsperiod</h2>
+      <h2 className="section__title">
+        Billigaste tidsperiod
+        <InfoTooltip
+            text="Vi summerar elpriset timme för timme över vald period (t.ex. 4 timmar i rad) och visar den sammanhängande tidsperiod som har lägst totalkostnad. Perfekt om du exempelvis vill ladda elbilen under flera timmar i sträck."
+        />
+      </h2>
 
       <div className="period-selector">
         {[2, 4, 8].map((h) => (
-          <button
-            key={h}
-            className={`period-selector__btn ${activePreset === h ? 'period-selector__btn--active' : ''}`}
-            onClick={() => setActivePreset(h)}>
-            {h} timmar
-          </button>
+            <button
+                key={h}
+                className={`period-selector__btn ${activePreset === h ? 'period-selector__btn--active' : ''}`}
+                onClick={() => setActivePreset(h)}>
+              {h} timmar
+            </button>
         ))}
         <button
           className={`period-selector__btn ${activePreset === 'custom' ? 'period-selector__btn--active' : ''}`}

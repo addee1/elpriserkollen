@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { FeesConfig } from '../types';
-
+import InfoTooltip from "./InfoTooltip";
 interface Props {
   fees: FeesConfig;
   onChange: (fees: FeesConfig) => void;
@@ -23,20 +23,25 @@ const FeesSettings = ({ fees, onChange }: Props) => {
 
   return (
     <section className="section">
-      <h2 className="section__title">Avgifter + Moms</h2>
+      <h2 className="section__title">
+        Avgifter + Moms
+        <InfoTooltip
+            text="Här kan du lägga in avgifter från din elfaktura för att få ett mer komplett elpris per kWh. Vi lägger till rörliga kostnader, fasta påslag, elöverföring, energiskatt och eventuell moms. Fasta abonnemangsavgifter och andra månadskostnader ingår inte. Observera att avgifter kan ändras över tid och att resultatet därför är en uppskattning."
+        />
+      </h2>
 
       <label className="fees-toggle">
         <input
-          type="checkbox"
-          checked={fees.enabled}
-          onChange={(e) => update({ enabled: e.target.checked })}/>
+            type="checkbox"
+            checked={fees.enabled}
+            onChange={(e) => update({enabled: e.target.checked})}/>
         <span>Beräkna kostnader med avgifter + moms</span>
       </label>
 
       {fees.enabled && (
-        <div className="fees-form">
-          <div className="fees-form__section">
-            <h3 className="fees-form__section-title">Elhandel</h3>
+          <div className="fees-form">
+            <div className="fees-form__section">
+              <h3 className="fees-form__section-title">Elhandel</h3>
             <div className="fees-form__group">
               <label>Rörliga kostnader (öre/kWh)</label>
               <input
