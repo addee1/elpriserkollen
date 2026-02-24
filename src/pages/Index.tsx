@@ -7,7 +7,7 @@ import PriceOverview from "../components/PriceOverview";
 import CheapestPeriod from "../components/CheapestPeriod";
 import SavingsCalculator from "../components/SavingsCalculator";
 import FeesSettings from "../components/FeesSettings";
-
+import HistoricalOverview from "../components/HistoricalOverview";
 function applyFees(data: HourlyPrice[], fees: FeesConfig): HourlyPrice[] {
   if (!fees.enabled) return data;
 
@@ -78,6 +78,7 @@ const Index = () => {
               />
               <CheapestPeriod data={hourlyData} unit={unit} />
               <SavingsCalculator data={hourlyData} unit={unit} />
+              <HistoricalOverview area={area} />
             </>
         )}
       </>

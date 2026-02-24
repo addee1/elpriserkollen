@@ -13,7 +13,7 @@ const Footer = () => {
                 </div>
 
                 <div className="app-footer__bottom">
-                    <span>© {year} elpriserkollen.se</span>
+                    <span>© {year} elpriserkollen.se | All rights reserved.</span>
                     <span>Developed by{" "}
                         <a href="https://github.com/addee1" target="_blank" rel="noreferrer">Addee</a>{" "}
                         ♥

@@ -47,7 +47,12 @@ const SavingsCalculator = ({ data, unit }: Props) => {
 
   return (
     <section className="section">
-      <h2 className="section__title">Besparingsberäkning</h2>
+      <h2 className="section__title">
+        Besparingsberäkning
+        <InfoTooltip
+            text="Denna beräkning uppskattar hur mycket du kan spara per månad genom att flytta din elanvändning från en vald timme till den billigaste timmen under dagen. Resultatet baseras på dagens spotpriser och angiven förbrukning, och är en uppskattning eftersom elpriser varierar dag för dag."
+        />
+      </h2>
 
       <div className="savings-form">
         <div className="savings-form__group">
