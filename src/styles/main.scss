@@ -282,7 +282,7 @@ body {
 .section {
   @include card;
   margin-bottom: $spacing-lg;
-  overflow: hidden;
+  overflow: visible;
   background: var(--bg-card);
   border-color: var(--border-card);
   box-shadow: var(--shadow-card);
@@ -895,4 +895,45 @@ body {
 .app-footer__disclaimer {
   font-size: 0.75rem;
   color: var(--text-muted);
+}
+
+.info-tooltip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+}
+.info-tooltip__icon {
+  color: var(--accent-cyan);
+}
+.info-tooltip__bubble {
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-transform: none !important;
+  color: var(--text-primary) !important;
+  background: var(--bg-card)!important;
+  border: 1px solid var(--border-card);
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  width: 220px;
+  line-height: 1.4;
+  box-shadow: var(--shadow-card);
+  z-index: 999;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: var(--bg-card) transparent transparent transparent;
+  }
 }
