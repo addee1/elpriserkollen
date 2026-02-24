@@ -148,7 +148,48 @@ body {
   @include respond-to(md) {
     padding: $spacing-xl $spacing-xl;
   }
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
 
+    @include respond-to(md) {
+      font-size: 2rem;
+    }
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  &__brand:active {
+    transform: scale(0.98);
+  }
+
+  &__logo {
+    height: 28px;
+    width: auto;
+    display: block;
+  }
+
+  &__logo {
+    height: 45px;
+    width: auto;
+    display: block;
+  }
+  
   &__top {
     display: flex;
     align-items: center;
@@ -935,5 +976,83 @@ body {
     border-width: 6px;
     border-style: solid;
     border-color: var(--bg-card) transparent transparent transparent;
+  }
+}
+
+
+// About, DataSource, PrivacyPolicy, Terms Pages.
+.info-page {
+  max-width: 720px;
+  margin: 0 auto;
+  
+  a {
+    color: var(--text-primary);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__lead {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  section {
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-cyan);
+  }
+
+  p {
+    margin-bottom: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  &__updated {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.03em;
+  }
+
+  &__meta {
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__updated {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    letter-spacing: 0.03em;
+  }
+
+  &__icon {
+    font-size: 0.8rem;
+    opacity: 0.8;
+  }
+
+  &__divider {
+    margin-top: 0.75rem;
+    height: 1px;
+    width: 100%;
+    background: var(--border-subtle);
   }
 }

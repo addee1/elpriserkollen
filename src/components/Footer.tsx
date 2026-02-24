@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const Footer = () => {
     const year = new Date().getFullYear();
 
@@ -5,10 +6,10 @@ const Footer = () => {
         <footer className="app-footer">
             <div className="app-footer__inner">
                 <div className="app-footer__links">
-                    <a href="#">Om ElPrisKollen</a>
-                    <a href="#">Datakälla</a>
-                    <a href="#">Integritetspolicy</a>
-                    <a href="#">Användarvillkor</a>
+                    <Link to="/om-oss">Om ElPriserKollen</Link>
+                    <Link to="/datakalla">Datakälla</Link>
+                    <Link to="/integritetspolicy">Integritetspolicy</Link>
+                    <Link to="/anvandarvillkor">Användarvillkor</Link>
                 </div>
 
                 <div className="app-footer__bottom">
